@@ -90,9 +90,9 @@ def test(args=args,transform=albumentations()):
                                           torch.tensor(filtered_result)[:,4],
                                           iou_threshold=iou_threshold)
             
-            bbx_rescaled=filtered_result[ids].astype(np.float32)  
-            if len(bbx_rescaled.shape)==1:
-                bbx_rescaled=bbx_rescaled[None] #unsqueeze to avoid losing dem which can cause an error 
+            bbx_rescaled=filtered_result[ids].astype(np.float32) 
+            bbx_rescaled=bbx_rescaled[None] if len(bbx_rescaled.shape)==1 else bbx_rescaled #to avoid dim=1 
+  
 
             #plotting
             img=plot_bbox_labels(source,bbx_rescaled)
