@@ -8,7 +8,7 @@ import pickle
 
 import xml.etree.ElementTree as ET
 
-
+#copied from SSD repo
 class VOCAPIEvaluator():
     """ VOC AP Evaluation class """
     def __init__(self, data_root, img_size, device, set_type='test', year='2007', display=False):
